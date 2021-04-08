@@ -109,6 +109,9 @@ class Counters {
 	resetN2() {
 		this.countN2 = 0
 	}
+	resetN1() {
+		this.countN1 = 0
+	}
 }
 
 /////=================Генератор последовательности==================
@@ -122,16 +125,16 @@ function receiver(sequence) {
 		if (counters.expectedSignal && index !== counters.expectedSignal) {
 			continue
 		}
-
+		
 		let syncMark = identifier(
 			sequence,
 			counters.predeterminationExpSignal(index)
 		) /// метка цикла
 
 		if (syncMark) {
-			debugger
+			
 			counters.n1Increment()
-			counters.resetN2()
+			//counters.resetN2()
 			counters.setExpectedSignal(index)
 		} else if (index === counters.expectedSignal && !syncMark && index) {
 			counters.n2Increment()
@@ -146,9 +149,11 @@ function receiver(sequence) {
 		if (counters.countN2 === 16) {
 			console.log('произошел выход из синхронизма!')
 			//-1
+			counters.resetN1()
 			counters.n2Decrement()
 			counters.resetExpSignal()
 		}
+		debugger
 	}
 }
 
