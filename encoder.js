@@ -169,29 +169,4 @@ function generator(index) {
 	return genCycle + index
 }
 
-// function solver(coincidence, counters, index) {
-//     if (coincidence) {
-//         counters.n1Increment()
-//         counters.setExpectedSignal(index)
-//     } else {
-//         counters.n2Increment()
-//     }
-//
-//     if (counters.countN1 === 8) {
-//         console.log('синхронизм достигнут!')
-//         counters.resetCounters()
-//     }
-//
-//     if (counters.countN2 === 16) {
-//         console.log('произошел выход из синхронизма!')
-//         //-1
-//         counters.n2Decrement()
-//         counters.resetExpSignal()
-//     }
-// }
-
-// function analyzer(index, expectedSignal) {
-//     return index === expectedSignal
-// }
-
 /////=================Выделитель метки цикловой сс==================
