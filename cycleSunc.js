@@ -66,9 +66,8 @@ function getLoad() {
 	}
 
 	return outputCode
-	//return [0, 1, 0, 1, 0, 1, 0, 1]
 }
-
+/////=================Генератор последовательности==================
 ///////////////====================================================
 
 class Counters {
@@ -114,9 +113,7 @@ class Counters {
 	}
 }
 
-/////=================Генератор последовательности==================
-receiver(generateSequence())
-
+///////////////====================================================
 /////=================Выделитель метки цикловой сс==================
 function receiver(sequence) {
 	let counters = new Counters()
@@ -132,9 +129,7 @@ function receiver(sequence) {
 		) /// метка цикла
 
 		if (syncMark) {
-			
 			counters.n1Increment()
-			//counters.resetN2()
 			counters.setExpectedSignal(index)
 		} else if (index === counters.expectedSignal && !syncMark && index) {
 			counters.n2Increment()
@@ -153,7 +148,6 @@ function receiver(sequence) {
 			counters.n2Decrement()
 			counters.resetExpSignal()
 		}
-		debugger
 	}
 }
 
@@ -170,3 +164,5 @@ function generator(index) {
 }
 
 /////=================Выделитель метки цикловой сс==================
+
+receiver(generateSequence())
